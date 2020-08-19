@@ -21,10 +21,6 @@ function App() {
     const repository = response.data;
 
     setRepositories([...repositories, repository]);
-
-    const project = response.data;
-
-    setProject([...projects, project]);
   }
 
   async function handleRemoveRepository(id) {
@@ -35,10 +31,10 @@ function App() {
   return (
     <div>
       <ul data-testid="repository-list">
-        {projects.map((project) => (
-          <li key={project.id}>
-            {project.title}
-            <button onClick={() => handleRemoveRepository(`${project.id}`)}>
+        {repositories.map((repository) => (
+          <li key={repository.id}>
+            {repository.title}
+            <button onClick={() => handleRemoveRepository(`${repository.id}`)}>
               Remover
             </button>
           </li>
